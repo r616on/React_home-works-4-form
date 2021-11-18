@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./desktop.scss";
 
 const HexToRgb = (props) => {
   const [color, setColor] = useState("");
-  const [textColor, setTextColor] = useState();
+  const [textColor, setTextColor] = useState("#Привет");
+  const backgroundColor = useRef();
 
   const handelChangeColor = (e) => {
     setColor(e.target.value);
@@ -20,13 +21,15 @@ const HexToRgb = (props) => {
     }
     if (color.length === 7 && color.match(/#[a-f0-9]{6}\b/gi)) {
       setTextColor(hexToRgb(color));
+      backgroundColor.current.style.backgroundColor = color;
     } else if (color.length > 6 && !color.match(/#[a-f0-9]{6}\b/gi)) {
       setTextColor("#Ошибка");
+      backgroundColor.current.style.backgroundColor = "rgb(240, 104, 26)";
     }
   }, [color]);
 
   return (
-    <div className={"HexToRgb"} style={{ backgroundColor: color }}>
+    <div className={"HexToRgb"} ref={backgroundColor}>
       <form className={"HexToRgb-row"}>
         <div>
           <input
