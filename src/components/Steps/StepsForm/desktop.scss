@@ -1,0 +1,32 @@
+.Steps-form {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+.input-item {
+  height: 40px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 20px;
+  display: block;
+}
+.lable {
+  display: block;
+  margin-bottom: 10px;
+}
+.input-date {
+}
+.input-distance {
+}
+.input-button {
+  padding-left: 15px;
+  padding-right: 15px;
+}

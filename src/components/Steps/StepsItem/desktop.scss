@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.output-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.output-item:last-child {
+  margin-bottom: 0px;
+}
+.item-date {
+}
+.item-distance {
+}
+.item-controls {
+}
+.controls {
+}
+.clear {
+  margin-left: 10px;
+}
