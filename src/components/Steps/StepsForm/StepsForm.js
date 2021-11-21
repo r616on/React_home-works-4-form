@@ -9,7 +9,7 @@ const StepsForm = (props) => {
     <form className="Steps-form" onSubmit={onSubmit}>
       <div className="form-item">
         <label className="lable" htmlFor="date">
-          Дата (ДД.ММ.ГГ) {form.date}
+          Дата (ДД.ММ.ГГ)
         </label>
         <input
           type="text"
