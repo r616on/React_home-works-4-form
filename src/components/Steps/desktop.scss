@@ -2,9 +2,12 @@
   max-width: 100%;
   width: 100%;
   height: 700px;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .Steps-row {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 50px;
   display: flex;

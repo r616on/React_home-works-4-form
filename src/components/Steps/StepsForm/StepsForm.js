@@ -7,7 +7,7 @@ const StepsForm = (props) => {
 
   return (
     <form className="Steps-form" onSubmit={onSubmit}>
-      <div className="form-item">
+      <div className="form-item fild">
         <label className="lable" htmlFor="date">
           Дата (ДД.ММ.ГГ)
         </label>
@@ -15,12 +15,12 @@ const StepsForm = (props) => {
           type="text"
           id="date"
           name="date"
-          className={"input-date input-item"}
+          className={"input-date  input-item"}
           value={form.date}
           onChange={onChange}
         />
       </div>
-      <div className="form-item">
+      <div className="form-item fild">
         <label className="lable" htmlFor="distance">
           Пройденно км
         </label>
@@ -28,7 +28,7 @@ const StepsForm = (props) => {
           type="text"
           id="distance"
           name="distance"
-          className={"input-distance input-item"}
+          className={"input-distance  input-item"}
           value={form.distance}
           onChange={onChange}
         />
