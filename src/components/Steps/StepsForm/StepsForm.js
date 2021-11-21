@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./desktop.scss";
 
 const StepsForm = (props) => {
-  const { form, onChange, onSubmit, btnOnClik } = props;
+  const { form, onChange, onSubmit } = props;
 
   return (
     <form className="Steps-form" onSubmit={onSubmit}>
       <div className="form-item">
         <label className="lable" htmlFor="date">
-          Дата (ДД.ММ.ГГ)
+          Дата (ДД.ММ.ГГ) {form.date}
         </label>
         <input
           type="text"
           id="date"
           name="date"
           className={"input-date input-item"}
-          value={form.name}
+          value={form.date}
           onChange={onChange}
         />
       </div>
@@ -29,7 +29,7 @@ const StepsForm = (props) => {
           id="distance"
           name="distance"
           className={"input-distance input-item"}
-          value={form.name}
+          value={form.distance}
           onChange={onChange}
         />
       </div>
@@ -39,6 +39,10 @@ const StepsForm = (props) => {
   );
 };
 
-StepsForm.propTypes = {};
+StepsForm.propTypes = {
+  form: PropTypes.object,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+};
 
 export default StepsForm;

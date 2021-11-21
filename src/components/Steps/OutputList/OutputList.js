@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import "./desktop.scss";
 import StepsItem from "../StepsItem/StepsItem";
 
-const OutputList = ({ items }) => {
-  console.log(items);
+const OutputList = ({ items, handleDell, handleEdit }) => {
   return (
     <div className={"output"}>
       <div className={"output-title"}>
@@ -17,8 +16,11 @@ const OutputList = ({ items }) => {
           return (
             <StepsItem
               key={item.id}
+              itemId={item.id}
               date={item.date}
               distance={item.distance}
+              handleDell={handleDell}
+              handleEdit={handleEdit}
             />
           );
         })}
@@ -27,6 +29,10 @@ const OutputList = ({ items }) => {
   );
 };
 
-OutputList.propTypes = {};
+OutputList.propTypes = {
+  items: PropTypes.array,
+  handleDell: PropTypes.func,
+  handleEdit: PropTypes.func,
+};
 
 export default OutputList;
