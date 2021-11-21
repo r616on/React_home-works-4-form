@@ -5,7 +5,7 @@ import Steps from "./components/Steps/Steps";
 function App() {
   return (
     <div className="App">
-      {/* <HexToRgb /> */}
+      <HexToRgb />
       <Steps />
     </div>
   );
