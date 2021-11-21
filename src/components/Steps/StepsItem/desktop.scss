@@ -20,3 +20,12 @@
 .clear {
   margin-left: 10px;
 }
+.clear:hover {
+  color: red;
+}
+.edit:hover {
+  color: green;
+}
+.material-icons {
+  cursor: pointer;
+}
