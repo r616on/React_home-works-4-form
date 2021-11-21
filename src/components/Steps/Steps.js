@@ -41,11 +41,13 @@ function Steps() {
       } else {
         setStepArr((prevArr) => {
           const arr = [...prevArr];
-          prevArr.push({
+
+          arr.push({
             id: uuidv4(),
             date: form.date,
             distance: form.distance,
           });
+
           arr.sort((a, b) => {
             const aArr = a.date.split(".");
             const bArr = b.date.split(".");
@@ -61,6 +63,7 @@ function Steps() {
               return -1;
             return null;
           });
+
           return arr;
         });
         setForm(initForm);
