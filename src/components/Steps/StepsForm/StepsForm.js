@@ -12,7 +12,7 @@ const StepsForm = (props) => {
           Дата (ДД.ММ.ГГ)
         </label>
         <input
-          type="text"
+          type="date"
           id="date"
           name="date"
           className={"input-date  input-item"}
@@ -25,7 +25,7 @@ const StepsForm = (props) => {
           Пройденно км
         </label>
         <input
-          type="text"
+          type="number"
           id="distance"
           name="distance"
           className={"input-distance  input-item"}

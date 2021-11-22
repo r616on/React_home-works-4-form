@@ -3,6 +3,16 @@ import React, { useState } from "react";
 import "./desktop.scss";
 import StepsForm from "./StepsForm/StepsForm";
 import OutputList from "./OutputList/OutputList";
+import { format } from "date-fns";
+
+class StepItem {
+  constructor(date, distance) {
+    this.id = uuidv4();
+    this.date = date;
+    this.dateVie = format(new Date(date), "dd.MM.yy");
+    this.distance = distance;
+  }
+}
 
 function Steps() {
   const initForm = {
@@ -12,25 +22,32 @@ function Steps() {
   };
 
   const [stepArr, setStepArr] = useState([
-    { id: uuidv4(), date: "20.07.19", distance: "5.7" },
-    { id: uuidv4(), date: "19.07.19", distance: "14.2" },
-    { id: uuidv4(), date: "18.07.19", distance: "3.4" },
+    new StepItem("2019-07-20", 5.7),
+    new StepItem("2019-07-19", 14.2),
+    new StepItem("2019-07-18", 3.4),
   ]);
 
   const [form, setForm] = useState(initForm);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
     if (form.distance) {
       const index = stepArr.findIndex((item) => item.date === form.date);
+      //// Если такая дата уже существует и не редактирование то записываем новое значение
       if (index > -1 && !form.distanceEdit) {
         setStepArr((prevArr) => {
           const arr = [...prevArr];
-          arr[index].distance = String(+arr[index].distance + +form.distance);
+          console.log(arr);
+          console.log("Начальное значение " + arr[index].distance);
+          console.log("Новое значение  " + form.distance);
+          //
+          arr[index].distance = +arr[index].distance + +form.distance;
+          //
+          console.log("результат " + arr[index].distance);
           return arr;
         });
         setForm(initForm);
+        ////////
       } else if (index > -1 && form.distanceEdit) {
         setStepArr((prevArr) => {
           const arr = [...prevArr];
@@ -38,29 +55,14 @@ function Steps() {
           return arr;
         });
         setForm(initForm);
+        ///////
       } else {
         setStepArr((prevArr) => {
           const arr = [...prevArr];
-
-          arr.push({
-            id: uuidv4(),
-            date: form.date,
-            distance: form.distance,
-          });
-
+          arr.push(new StepItem(form.date, form.distance));
           arr.sort((a, b) => {
-            const aArr = a.date.split(".");
-            const bArr = b.date.split(".");
-            if (
-              new Date(`20${aArr[2]}.${aArr[1]}.${aArr[0]}`) >
-              new Date(`20${bArr[2]}.${bArr[1]}.${bArr[0]}`)
-            )
-              return 1;
-            if (
-              new Date(`20${aArr[2]}.${aArr[1]}.${aArr[0]}`) <
-              new Date(`20${bArr[2]}.${bArr[1]}.${bArr[0]}`)
-            )
-              return -1;
+            if (new Date(a.date) > new Date(b.date)) return 1;
+            if (new Date(a.date) < new Date(b.date)) return -1;
             return null;
           });
 
@@ -84,13 +86,13 @@ function Steps() {
   };
   const handleEdit = (id) => {
     const index = stepArr.findIndex((item) => item.id === id);
+    // console.log(format(new Date(stepArr[index].date), "yyyy-MM-dd"));
     setForm({
       date: stepArr[index].date,
       distance: stepArr[index].distance,
       distanceEdit: true,
     });
   };
-
   return (
     <div className={"Steps"}>
       <div className={"Steps-row"}>

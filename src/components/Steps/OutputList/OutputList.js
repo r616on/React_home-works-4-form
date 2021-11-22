@@ -17,7 +17,7 @@ const OutputList = ({ items, handleDell, handleEdit }) => {
             <StepsItem
               key={item.id}
               itemId={item.id}
-              date={item.date}
+              date={item.dateVie}
               distance={item.distance}
               handleDell={handleDell}
               handleEdit={handleEdit}

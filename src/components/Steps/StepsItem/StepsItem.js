@@ -27,7 +27,7 @@ const StepsItem = ({ date, distance, handleDell, itemId, handleEdit }) => {
 
 StepsItem.propTypes = {
   date: PropTypes.string,
-  distance: PropTypes.string,
+  // distance: PropTypes.number,
   handleDell: PropTypes.func,
   itemId: PropTypes.string,
 };
