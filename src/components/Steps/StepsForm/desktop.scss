@@ -28,6 +28,13 @@
 }
 .input-date {
 }
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
 .input-distance {
 }
 .input-button {
